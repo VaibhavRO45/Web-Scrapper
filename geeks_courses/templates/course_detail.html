@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ course.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='course_detail.css') }}">
+</head>
+<body>
+    <header>
+        <h1>{{ course.title }}</h1>
+    </header>
+
+    <section class="course-detail-container">
+        <div class="course-image">
+            <img src="{{ course.image }}" alt="{{ course.title }}">
+        </div>
+
+        <div class="course-info">
+            <p><strong>Description:</strong> {{ course.description }}</p>
+            <p><strong>Overview:</strong> {{ course.overview }}</p>
+            <p><strong>Course Content:</strong> {{ course.course_content }}</p>
+            <p><strong>Instructor Name:</strong> {{ course.instructor_name }}</p>
+            <p><strong>Instructor Designation:</strong> {{ course.instructor_designation }}</p>
+            <p><strong>Testimonials Count:</strong> {{ course.testimonials_count }}</p>
+            <p><strong>Feedback Average:</strong> {{ course.feedback_average }}</p>
+        </div>
+
+        <div class="course-actions">
+            <a href="/">Back to Courses</a>
+            <a href="{{ url_for('edit_course', course_id=course_id) }}">Edit Course</a>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='edit_course.css') }}">
+    <title>Edit Course - {{ course.title }}</title>
+</head>
+<body>
+    <h1>Edit Course: {{ course.title }}</h1>
+    <form method="POST">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" value="{{ course.title }}" required>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required>{{ course.description }}</textarea>
+
+        <label for="overview">Overview:</label>
+        <textarea id="overview" name="overview" required>{{ course.overview }}</textarea>
+
+        <label for="course_content">Course Content:</label>
+        <textarea id="course_content" name="course_content" required>{{ course.course_content }}</textarea>
+
+        <label for="instructor_name">Instructor Name:</label>
+        <input type="text" id="instructor_name" name="instructor_name" value="{{ course.instructor_name }}" required>
+
+        <label for="instructor_designation">Instructor Designation:</label>
+        <input type="text" id="instructor_designation" name="instructor_designation" value="{{ course.instructor_designation }}" required>
+
+        <label for="testimonials_count">Testimonials Count:</label>
+        <input type="text" id="testimonials_count" name="testimonials_count" value="{{ course.testimonials_count }}" required>
+
+        <label for="feedback_average">Feedback Average:</label>
+        <input type="text" id="feedback_average" name="feedback_average" value="{{ course.feedback_average }}" required>
+
+        <input type="submit" value="Update Course">
+    </form>
+    <a href="{{ url_for('course_detail', course_id=course_id) }}">Cancel</a>
+</body>
+</html>
